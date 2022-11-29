@@ -62,8 +62,7 @@ struct LoginView: View {
         case .loaded:
             loadedView()
         case let .failed(error):
-//            failedView(error)
-            loadedView()
+            failedView(error)
         }
     }
 
@@ -78,16 +77,15 @@ struct LoginView: View {
         if let _ = previouslyLoaded {
             return AnyView(loadedView())
         } else {
-//            return AnyView(ActivityIndicatorView().padding())
-            return AnyView(loadedView())
+            return AnyView(ActivityIndicatorView().padding())
         }
     }
 
-//    func failedView(_ error: Error) -> some View {
-//        ErrorView(error: error, retryAction: {
-//            // TODO: Reload Actions
-//        })
-//    }
+    func failedView(_ error: Error) -> some View {
+        ErrorView(error: error, retryAction: {
+            // TODO: Reload Actions
+        })
+    }
 
     func loadedView() -> some View {
         VStack(spacing: 24) {
@@ -98,33 +96,33 @@ struct LoginView: View {
                 .font(.system(size: 14))
 
             VStack(alignment: .center, spacing: 0) {
-//                WalletButtonView(
-//                    title: "MetaMask",
-//                    action: {
-//                        loginWith(.MetaMask)
-//                    },
-//                    iconImage: Image("metamask-icon")
-//                )
-//
-//                Divider()
-//
-//                WalletButtonView(
-//                    title: "Trust Wallet",
-//                    action: {
-//                        loginWith(.TrustWallet)
-//                    },
-//                    iconImage: Image("trustwallet-icon")
-//                )
-//
-//                Divider()
-//
-//                WalletButtonView(
-//                    title: "Rainbow",
-//                    action: {
-//                        loginWith(.Rainbow)
-//                    },
-//                    iconImage: Image("rainbow-icon")
-//                )
+                WalletButtonView(
+                    title: "MetaMask",
+                    action: {
+                        loginWith(.MetaMask)
+                    },
+                    iconImage: Image("metamask-icon")
+                )
+
+                Divider()
+
+                WalletButtonView(
+                    title: "Trust Wallet",
+                    action: {
+                        loginWith(.TrustWallet)
+                    },
+                    iconImage: Image("trustwallet-icon")
+                )
+
+                Divider()
+
+                WalletButtonView(
+                    title: "Rainbow",
+                    action: {
+                        loginWith(.Rainbow)
+                    },
+                    iconImage: Image("rainbow-icon")
+                )
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
@@ -143,8 +141,8 @@ extension LoginView {
             switch result {
             case .success(let user):
                 print(user.wallet.address)
-//                let walletInfoModel = WalletInfoModel(address: user.wallet.address,
-//                                                      chainId: user.wallet.chainId)
+                let walletInfoModel = WalletInfoModel(address: user.wallet.address,
+                                                      chainId: user.wallet.chainId)
 //                injected.appState[\.userData.walletInfoModel] = walletInfoModel
                 isShowingLoginScreen.toggle()
             case .failure(let error):
