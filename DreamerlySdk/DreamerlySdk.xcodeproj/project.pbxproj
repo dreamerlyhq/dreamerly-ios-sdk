@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923A914E293598A5007E267D /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A9144293598A5007E267D /* WalletConnect.swift */; };
+		923A914F293598A5007E267D /* Glaip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A9146293598A5007E267D /* Glaip.swift */; };
+		923A9150293598A5007E267D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A9148293598A5007E267D /* User.swift */; };
+		923A9151293598A5007E267D /* WalletType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A9149293598A5007E267D /* WalletType.swift */; };
+		923A9152293598A5007E267D /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A914A293598A5007E267D /* UserState.swift */; };
+		923A9153293598A5007E267D /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A914B293598A5007E267D /* Wallet.swift */; };
+		923A9154293598A5007E267D /* WalletLinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A914D293598A5007E267D /* WalletLinkService.swift */; };
+		923A915829359A19007E267D /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 923A915729359A19007E267D /* WalletConnectSwift */; };
+		9267DE0D292F251000C47664 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267DE0C292F251000C47664 /* LoginView.swift */; };
+		9267DE12292F452100C47664 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267DE11292F452100C47664 /* Loadable.swift */; };
+		9267DE14292F462800C47664 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267DE13292F462800C47664 /* CancelBag.swift */; };
+		9267DE16292F49F000C47664 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267DE15292F49F000C47664 /* DependencyInjector.swift */; };
 		92C18CCB292C854A00DC65C0 /* DreamerlySdk.docc in Sources */ = {isa = PBXBuildFile; fileRef = 92C18CCA292C854A00DC65C0 /* DreamerlySdk.docc */; };
 		92C18CCC292C854A00DC65C0 /* DreamerlySdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C18CC9292C854A00DC65C0 /* DreamerlySdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92C18CD3292C86EE00DC65C0 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C18CD2292C86EE00DC65C0 /* Purchase.swift */; };
@@ -16,6 +28,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		923A9144293598A5007E267D /* WalletConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletConnect.swift; sourceTree = "<group>"; };
+		923A9146293598A5007E267D /* Glaip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glaip.swift; sourceTree = "<group>"; };
+		923A9148293598A5007E267D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		923A9149293598A5007E267D /* WalletType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletType.swift; sourceTree = "<group>"; };
+		923A914A293598A5007E267D /* UserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		923A914B293598A5007E267D /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		923A914D293598A5007E267D /* WalletLinkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletLinkService.swift; sourceTree = "<group>"; };
+		9267DE0C292F251000C47664 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9267DE11292F452100C47664 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		9267DE13292F462800C47664 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
+		9267DE15292F49F000C47664 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
 		92C18CC6292C854A00DC65C0 /* DreamerlySdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DreamerlySdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C18CC9292C854A00DC65C0 /* DreamerlySdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DreamerlySdk.h; sourceTree = "<group>"; };
 		92C18CCA292C854A00DC65C0 /* DreamerlySdk.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DreamerlySdk.docc; sourceTree = "<group>"; };
@@ -30,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923A915829359A19007E267D /* WalletConnectSwift in Frameworks */,
 				92C18CDB292CBD2900DC65C0 /* SwiftyStoreKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +61,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		923A9141293598A5007E267D /* Glaip */ = {
+			isa = PBXGroup;
+			children = (
+				923A9142293598A5007E267D /* Infra */,
+				923A9145293598A5007E267D /* API */,
+				923A914C293598A5007E267D /* Services */,
+			);
+			path = Glaip;
+			sourceTree = "<group>";
+		};
+		923A9142293598A5007E267D /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				923A9143293598A5007E267D /* WalletConnect */,
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
+		923A9143293598A5007E267D /* WalletConnect */ = {
+			isa = PBXGroup;
+			children = (
+				923A9144293598A5007E267D /* WalletConnect.swift */,
+			);
+			path = WalletConnect;
+			sourceTree = "<group>";
+		};
+		923A9145293598A5007E267D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				923A9146293598A5007E267D /* Glaip.swift */,
+				923A9147293598A5007E267D /* Domain */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		923A9147293598A5007E267D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				923A9148293598A5007E267D /* User.swift */,
+				923A9149293598A5007E267D /* WalletType.swift */,
+				923A914A293598A5007E267D /* UserState.swift */,
+				923A914B293598A5007E267D /* Wallet.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		923A914C293598A5007E267D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				923A914D293598A5007E267D /* WalletLinkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		923A9155293598EE007E267D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9267DE0A292F24B500C47664 /* AppStore */ = {
+			isa = PBXGroup;
+			children = (
+				92C18CD2292C86EE00DC65C0 /* Purchase.swift */,
+				92C18CD7292CBC9400DC65C0 /* StoreInteractor.swift */,
+			);
+			path = AppStore;
+			sourceTree = "<group>";
+		};
+		9267DE0B292F24DF00C47664 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				9267DE0C292F251000C47664 /* LoginView.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		92C18CBC292C854A00DC65C0 = {
 			isa = PBXGroup;
 			children = (
@@ -57,11 +159,13 @@
 		92C18CC8292C854A00DC65C0 /* DreamerlySdk */ = {
 			isa = PBXGroup;
 			children = (
+				923A9155293598EE007E267D /* UI */,
+				923A9141293598A5007E267D /* Glaip */,
+				9267DE0B292F24DF00C47664 /* Wallet */,
 				92C18CDC292CBD6800DC65C0 /* utilities */,
 				92C18CC9292C854A00DC65C0 /* DreamerlySdk.h */,
 				92C18CCA292C854A00DC65C0 /* DreamerlySdk.docc */,
-				92C18CD2292C86EE00DC65C0 /* Purchase.swift */,
-				92C18CD7292CBC9400DC65C0 /* StoreInteractor.swift */,
+				9267DE0A292F24B500C47664 /* AppStore */,
 			);
 			path = DreamerlySdk;
 			sourceTree = "<group>";
@@ -78,6 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				92C18CDD292CBD7B00DC65C0 /* Store.swift */,
+				9267DE11292F452100C47664 /* Loadable.swift */,
+				9267DE13292F462800C47664 /* CancelBag.swift */,
+				9267DE15292F49F000C47664 /* DependencyInjector.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -112,6 +219,7 @@
 			name = DreamerlySdk;
 			packageProductDependencies = (
 				92C18CDA292CBD2900DC65C0 /* SwiftyStoreKit */,
+				923A915729359A19007E267D /* WalletConnectSwift */,
 			);
 			productName = DreamerlySdk;
 			productReference = 92C18CC6292C854A00DC65C0 /* DreamerlySdk.framework */;
@@ -142,6 +250,7 @@
 			mainGroup = 92C18CBC292C854A00DC65C0;
 			packageReferences = (
 				92C18CD9292CBD2900DC65C0 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
+				923A915629359A19007E267D /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
 			);
 			productRefGroup = 92C18CC7292C854A00DC65C0 /* Products */;
 			projectDirPath = "";
@@ -167,10 +276,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9267DE16292F49F000C47664 /* DependencyInjector.swift in Sources */,
+				923A914F293598A5007E267D /* Glaip.swift in Sources */,
+				923A9154293598A5007E267D /* WalletLinkService.swift in Sources */,
 				92C18CD3292C86EE00DC65C0 /* Purchase.swift in Sources */,
 				92C18CCB292C854A00DC65C0 /* DreamerlySdk.docc in Sources */,
 				92C18CD8292CBC9400DC65C0 /* StoreInteractor.swift in Sources */,
+				9267DE0D292F251000C47664 /* LoginView.swift in Sources */,
+				923A9151293598A5007E267D /* WalletType.swift in Sources */,
 				92C18CDE292CBD7B00DC65C0 /* Store.swift in Sources */,
+				923A9153293598A5007E267D /* Wallet.swift in Sources */,
+				9267DE14292F462800C47664 /* CancelBag.swift in Sources */,
+				9267DE12292F452100C47664 /* Loadable.swift in Sources */,
+				923A914E293598A5007E267D /* WalletConnect.swift in Sources */,
+				923A9150293598A5007E267D /* User.swift in Sources */,
+				923A9152293598A5007E267D /* UserState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +499,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		923A915629359A19007E267D /* XCRemoteSwiftPackageReference "WalletConnectSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WalletConnect/WalletConnectSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		92C18CD9292CBD2900DC65C0 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
@@ -390,6 +518,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		923A915729359A19007E267D /* WalletConnectSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 923A915629359A19007E267D /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
+			productName = WalletConnectSwift;
+		};
 		92C18CDA292CBD2900DC65C0 /* SwiftyStoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 92C18CD9292CBD2900DC65C0 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
