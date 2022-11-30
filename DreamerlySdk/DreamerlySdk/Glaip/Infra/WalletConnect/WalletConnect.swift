@@ -79,8 +79,7 @@ final class WalletConnect {
     var bytes = [Int8](repeating: 0, count: 32)
     let status = SecRandomCopyBytes(kSecRandomDefault, bytes.count, &bytes)
     if status == errSecSuccess {
-//      return Data(bytes: bytes, count: 32).toHexString()
-        return "10001"
+      return Data(bytes: bytes, count: 32).toHexString()
     } else {
       enum TestError: Error {
         case unknown

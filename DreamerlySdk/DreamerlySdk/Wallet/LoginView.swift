@@ -12,7 +12,11 @@ import Combine
 // MARK: - LoginView
 public struct LoginViewSdk: View {
     
-    public init() {}
+    public var loginWith : (_ walletType: WalletType) -> ()
+    
+    public init(loginWith: @escaping (_ walletType: WalletType)->()) {
+        self.loginWith = loginWith
+    }
 
     public var body: some View {
         VStack(spacing: 24) {
@@ -26,7 +30,7 @@ public struct LoginViewSdk: View {
                 WalletButtonView(
                     title: "MetaMask",
                     action: {
-//                        loginWith(.MetaMask)
+                        loginWith(.MetaMask)
                     },
                     iconImage: Image("metamask-icon")
                 )
@@ -36,7 +40,7 @@ public struct LoginViewSdk: View {
                 WalletButtonView(
                     title: "Trust Wallet",
                     action: {
-//                        loginWith(.TrustWallet)
+                        loginWith(.TrustWallet)
                     },
                     iconImage: Image("trustwallet-icon")
                 )
@@ -46,7 +50,7 @@ public struct LoginViewSdk: View {
                 WalletButtonView(
                     title: "Rainbow",
                     action: {
-//                        loginWith(.Rainbow)
+                        loginWith(.Rainbow)
                     },
                     iconImage: Image("rainbow-icon")
                 )
@@ -63,7 +67,7 @@ public struct LoginViewSdk: View {
 #if DEBUG
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginViewSdk()
+        LoginViewSdk(loginWith: {walletType in })
     }
 }
 #endif
