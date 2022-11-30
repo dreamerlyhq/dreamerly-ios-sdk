@@ -12,17 +12,19 @@ public final class Glaip: ObservableObject {
 
   public let title: String
   public let description: String
+  public let clientUrl: String
   public let supportedWallets: [WalletType]
 
   public var currentWallet: WalletType?
 
   @Published public var userState: UserState = .unregistered
 
-  public init(title: String, description: String, supportedWallets: [WalletType]) {
+  public init(title: String, description: String, clientUrl: String, supportedWallets: [WalletType]) {
     self.title = title
     self.description = description
+    self.clientUrl = clientUrl
     self.supportedWallets = supportedWallets
-    self.walletConnect = WalletLinkService(title: title, description: description)
+    self.walletConnect = WalletLinkService(title: title, description: description, clientUrl: clientUrl)
   }
 
   public func loginUser(type: WalletType, completion: @escaping (Result<User, Error>) -> Void) {
@@ -45,7 +47,7 @@ public final class Glaip: ObservableObject {
   }
 
   private func walletLogin(wallet: WalletType, completion: @escaping (Result<User, Error>) -> Void) {
-    let service = WalletLinkService(title: title, description: description)
+    let service = WalletLinkService(title: title, description: description, clientUrl: clientUrl)
     service.connect(wallet: wallet, completion: { result in
 
       switch result {

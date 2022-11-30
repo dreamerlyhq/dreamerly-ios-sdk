@@ -28,13 +28,15 @@ public struct WalletDetails {
 public final class WalletLinkService: WalletService {
   private let title: String
   private let description: String
+  private let clientUrl: String
 
   private var walletConnect: WalletConnect!
   private var onDidConnect: ((WalletDetails) -> Void)?
 
-  public init(title: String, description: String) {
+  public init(title: String, description: String, clientUrl: String) {
     self.title = title
     self.description = description
+    self.clientUrl = clientUrl
 
     setWalletConnect()
   }
@@ -83,7 +85,7 @@ public final class WalletLinkService: WalletService {
   }
 
   private func getDeepLink(wallet: WalletType) -> String {
-    let connectionUrl = walletConnect.connect(title: title, description: description)
+    let connectionUrl = walletConnect.connect(title: title, description: description, clientUrl: clientUrl)
     let encodeURL = connectionUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
     let end = encodeURL.replacingOccurrences(of: "=", with: "%3D").replacingOccurrences(of: "&", with: "%26")
 

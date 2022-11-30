@@ -1,0 +1,11 @@
+framework module DreamerlySdk {
+  umbrella header "DreamerlySdk.h"
+
+  export *
+  module * { export * }
+}
+
+module DreamerlySdk.Swift {
+  header "DreamerlySdk-Swift.h"
+  requires objc
+}
