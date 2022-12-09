@@ -15,9 +15,28 @@ public protocol StoreInteractor {
     func getProducts(ids: [String]) -> AnyPublisher<Set<SKProduct>, Error>
     func purchaseProduct(productId: String) -> AnyPublisher<String, Error>
     func fetchReceipt() -> AnyPublisher<Data, Error>
+    func sendReceiptData(transactionId: String,
+                       address: String,
+                       productId: String,
+                       transactionDateTime: String,
+                       status: String,
+                       chainId: String,
+                       platform: String,
+                       receiptData: Data) -> AnyPublisher<Data, Error>
 }
 
 // MARK: - Real
+
+struct IosTransaction: Codable {
+    let transactionId: String
+    let address: String
+    let chainId: String
+    let platform: String
+    let productId: String
+    let status: String
+    let transactionDateTime: String
+    let receiptData: String
+}
 
 public struct RealStoreInteractor: StoreInteractor {
 
@@ -99,6 +118,57 @@ public struct RealStoreInteractor: StoreInteractor {
         }
         .eraseToAnyPublisher()
     }
+    
+    public func sendReceiptData(transactionId: String,
+                                           address: String,
+                                           productId: String,
+                                           transactionDateTime: String,
+                                           status: String,
+                                           chainId: String,
+                                           platform: String,
+                                           receiptData: Data) -> AnyPublisher<Data, Error> {
+        
+        return Deferred {
+            Future { promise in
+                let iosTransaction = IosTransaction(transactionId: transactionId, address: address, chainId: chainId, platform: platform, productId: productId, status: status, transactionDateTime: transactionDateTime, receiptData: receiptData.base64EncodedString())
+                
+                guard let uploadData = try? JSONEncoder().encode(iosTransaction) else {
+                    promise(.success(receiptData))
+                    return
+                }
+                
+                let url = URL(string: "https://dzm8645j2g.execute-api.us-east-1.amazonaws.com/prod/")!
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
+                    // TODO figure out how to handle error and retry case here that don't make client redo the IAP flow w/ Apple
+                    if let error = error {
+                        print ("error: \(error)")
+                        promise(.failure(error))
+                        return
+                    }
+                    guard let response = response as? HTTPURLResponse,
+                        (200...299).contains(response.statusCode) else {
+                        print ("server error")
+                        promise(.success(receiptData))
+                        return
+                    }
+                    if let mimeType = response.mimeType,
+                        mimeType == "application/json",
+                        let data = data,
+                        let dataString = String(data: data, encoding: .utf8) {
+                        print ("got data: \(dataString)")
+                        promise(.success(receiptData))
+                    }
+                }
+                task.resume()
+            }
+        }
+        .eraseToAnyPublisher()
+
+    }
 }
 
 public final class StubStoreInteractor: StoreInteractor {
@@ -114,6 +184,17 @@ public final class StubStoreInteractor: StoreInteractor {
     }
 
     public func fetchReceipt() -> AnyPublisher<Data, Error> {
+        return Empty(completeImmediately: true).eraseToAnyPublisher()
+    }
+    
+    public func sendReceiptData(transactionId: String,
+                                           address: String,
+                                           productId: String,
+                                           transactionDateTime: String,
+                                           status: String,
+                                           chainId: String,
+                                           platform: String,
+                                           receiptData: Data) -> AnyPublisher<Data, Error> {
         return Empty(completeImmediately: true).eraseToAnyPublisher()
     }
 }
