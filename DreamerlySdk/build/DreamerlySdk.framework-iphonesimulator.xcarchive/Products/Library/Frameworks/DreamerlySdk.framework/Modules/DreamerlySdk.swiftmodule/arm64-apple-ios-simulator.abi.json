@@ -117,6 +117,54 @@
           },
           {
             "kind": "Var",
+            "name": "clientUrl",
+            "printedName": "clientUrl",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12DreamerlySdk5GlaipC9clientUrlSSvp",
+            "mangledName": "$s12DreamerlySdk5GlaipC9clientUrlSSvp",
+            "moduleName": "DreamerlySdk",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk5GlaipC9clientUrlSSvg",
+                "mangledName": "$s12DreamerlySdk5GlaipC9clientUrlSSvg",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "supportedWallets",
             "printedName": "supportedWallets",
             "children": [
@@ -506,13 +554,19 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(title:description:supportedWallets:)",
+            "printedName": "init(title:description:clientUrl:supportedWallets:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Glaip",
                 "printedName": "DreamerlySdk.Glaip",
                 "usr": "s:12DreamerlySdk5GlaipC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -542,8 +596,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12DreamerlySdk5GlaipC5title11description16supportedWalletsACSS_SSSayAA10WalletTypeOGtcfc",
-            "mangledName": "$s12DreamerlySdk5GlaipC5title11description16supportedWalletsACSS_SSSayAA10WalletTypeOGtcfc",
+            "usr": "s:12DreamerlySdk5GlaipC5title11description9clientUrl16supportedWalletsACSS_S2SSayAA10WalletTypeOGtcfc",
+            "mangledName": "$s12DreamerlySdk5GlaipC5title11description9clientUrl16supportedWalletsACSS_S2SSayAA10WalletTypeOGtcfc",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
               "AccessControl"
@@ -979,7 +1033,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(title:description:)",
+            "printedName": "init(title:description:clientUrl:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -998,11 +1052,17 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12DreamerlySdk17WalletLinkServiceC5title11descriptionACSS_SStcfc",
-            "mangledName": "$s12DreamerlySdk17WalletLinkServiceC5title11descriptionACSS_SStcfc",
+            "usr": "s:12DreamerlySdk17WalletLinkServiceC5title11description9clientUrlACSS_S2Stcfc",
+            "mangledName": "$s12DreamerlySdk17WalletLinkServiceC5title11description9clientUrlACSS_S2Stcfc",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
               "AccessControl"
@@ -3149,7 +3209,7 @@
     {
       "filePath": "\/Users\/thanhnguyen\/Workspace\/dreamerly\/dreamerly-ios-sdk\/DreamerlySdk\/DreamerlySdk\/Glaip\/Services\/WalletLinkService.swift",
       "kind": "IntegerLiteral",
-      "offset": 2030,
+      "offset": 2112,
       "length": 1,
       "value": "0"
     },
@@ -3212,28 +3272,28 @@
     {
       "filePath": "\/Users\/thanhnguyen\/Workspace\/dreamerly\/dreamerly-ios-sdk\/DreamerlySdk\/DreamerlySdk\/Glaip\/Infra\/WalletConnect\/WalletConnect.swift",
       "kind": "Array",
-      "offset": 585,
+      "offset": 602,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/thanhnguyen\/Workspace\/dreamerly\/dreamerly-ios-sdk\/DreamerlySdk\/DreamerlySdk\/Glaip\/Infra\/WalletConnect\/WalletConnect.swift",
       "kind": "IntegerLiteral",
-      "offset": 2574,
+      "offset": 2577,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/thanhnguyen\/Workspace\/dreamerly\/dreamerly-ios-sdk\/DreamerlySdk\/DreamerlySdk\/Glaip\/Infra\/WalletConnect\/WalletConnect.swift",
       "kind": "IntegerLiteral",
-      "offset": 2584,
+      "offset": 2587,
       "length": 2,
       "value": "32"
     },
     {
       "filePath": "\/Users\/thanhnguyen\/Workspace\/dreamerly\/dreamerly-ios-sdk\/DreamerlySdk\/DreamerlySdk\/Glaip\/Infra\/WalletConnect\/WalletConnect.swift",
       "kind": "IntegerLiteral",
-      "offset": 2736,
+      "offset": 2739,
       "length": 2,
       "value": "32"
     }

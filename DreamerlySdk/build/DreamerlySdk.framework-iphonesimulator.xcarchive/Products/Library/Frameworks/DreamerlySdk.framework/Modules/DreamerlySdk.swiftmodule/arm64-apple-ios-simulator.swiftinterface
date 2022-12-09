@@ -15,6 +15,7 @@ import _StringProcessing
 final public class Glaip : Foundation.ObservableObject {
   final public let title: Swift.String
   final public let description: Swift.String
+  final public let clientUrl: Swift.String
   final public let supportedWallets: [DreamerlySdk.WalletType]
   final public var currentWallet: DreamerlySdk.WalletType?
   @Combine.Published @_projectedValueProperty($userState) final public var userState: DreamerlySdk.UserState {
@@ -27,7 +28,7 @@ final public class Glaip : Foundation.ObservableObject {
     @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
     set
   }
-  public init(title: Swift.String, description: Swift.String, supportedWallets: [DreamerlySdk.WalletType])
+  public init(title: Swift.String, description: Swift.String, clientUrl: Swift.String, supportedWallets: [DreamerlySdk.WalletType])
   final public func loginUser(type: DreamerlySdk.WalletType, completion: @escaping (Swift.Result<DreamerlySdk.User, Swift.Error>) -> Swift.Void)
   final public func logout()
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
@@ -43,7 +44,7 @@ public struct WalletDetails {
   public init(address: Swift.String, chainId: Swift.Int)
 }
 final public class WalletLinkService : DreamerlySdk.WalletService {
-  public init(title: Swift.String, description: Swift.String)
+  public init(title: Swift.String, description: Swift.String, clientUrl: Swift.String)
   final public func connect(wallet: DreamerlySdk.WalletType, completion: @escaping (Swift.Result<DreamerlySdk.WalletDetails, Swift.Error>) -> Swift.Void)
   final public func disconnect()
   final public func sign(wallet: DreamerlySdk.WalletType, message: Swift.String, completion: @escaping (Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)
