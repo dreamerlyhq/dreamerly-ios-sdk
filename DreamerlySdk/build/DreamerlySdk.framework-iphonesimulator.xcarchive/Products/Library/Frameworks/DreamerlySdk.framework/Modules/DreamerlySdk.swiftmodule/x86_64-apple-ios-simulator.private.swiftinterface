@@ -54,18 +54,41 @@ public protocol StoreInteractor {
   func getProducts(ids: [Swift.String]) -> Combine.AnyPublisher<Swift.Set<StoreKit.SKProduct>, Swift.Error>
   func purchaseProduct(productId: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
   func fetchReceipt() -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
+  func sendReceiptData(dmIosPurchaseData: DreamerlySdk.DmIosPurchaseData, dmNftData: DreamerlySdk.DmNftData, apiKey: Swift.String) -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
+}
+public struct DmIosPurchaseData {
+  public init(transactionId: Swift.String, productId: Swift.String, transactionDateTime: Swift.String, receiptData: Foundation.Data, customerId: Swift.String)
+  public let transactionId: Swift.String
+  public let productId: Swift.String
+  public let transactionDateTime: Swift.String
+  public let receiptData: Foundation.Data
+  public let customerId: Swift.String
+}
+public struct DmNftData {
+  public init(nftCollectionId: Swift.String, nftMetadata: Swift.String, nftMetadataIp: Swift.String, nftDisplayName: Swift.String, nftDescription: Swift.String, nftImageUrl: Swift.String, fromAddress: Swift.String, toAddress: Swift.String, chainId: Swift.String)
+  public let nftCollectionId: Swift.String
+  public let nftMetadata: Swift.String
+  public let nftMetadataIp: Swift.String
+  public let nftDisplayName: Swift.String
+  public let nftDescription: Swift.String
+  public let nftImageUrl: Swift.String
+  public let fromAddress: Swift.String
+  public let toAddress: Swift.String
+  public let chainId: Swift.String
 }
 public struct RealStoreInteractor : DreamerlySdk.StoreInteractor {
   public init()
   public func getProducts(ids: [Swift.String]) -> Combine.AnyPublisher<Swift.Set<StoreKit.SKProduct>, Swift.Error>
   public func purchaseProduct(productId: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
   public func fetchReceipt() -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
+  public func sendReceiptData(dmIosPurchaseData: DreamerlySdk.DmIosPurchaseData, dmNftData: DreamerlySdk.DmNftData, apiKey: Swift.String) -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
 }
 final public class StubStoreInteractor : DreamerlySdk.StoreInteractor {
   public init()
   final public func getProducts(ids: [Swift.String]) -> Combine.AnyPublisher<Swift.Set<StoreKit.SKProduct>, Swift.Error>
   final public func purchaseProduct(productId: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
   final public func fetchReceipt() -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
+  final public func sendReceiptData(dmIosPurchaseData: DreamerlySdk.DmIosPurchaseData, dmNftData: DreamerlySdk.DmNftData, apiKey: Swift.String) -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
   @objc deinit
 }
 public struct LoginViewSdk : SwiftUI.View {

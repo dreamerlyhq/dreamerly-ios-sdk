@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		6R//S8WGwLWC4V4CJyiHnJuzgVQ=
+		YATDhXwFyJ/cV36CefwSFHtRN7g=
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		m6XE+EPAlNWlDwhg/nhofwHF0pQ=
+		TiaBb8YdMPo4/V/ZJxrqx2eQBEA=
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,19 +30,19 @@
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		m6XE+EPAlNWlDwhg/nhofwHF0pQ=
+		TiaBb8YdMPo4/V/ZJxrqx2eQBEA=
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ZvTySeK8wJms46HYD9fsslw0fDw=
+		cJA3sEkpYj5W9TZO+auGT1F2osw=
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		6R//S8WGwLWC4V4CJyiHnJuzgVQ=
+		YATDhXwFyJ/cV36CefwSFHtRN7g=
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		We+5B2Sf9wub25vWjo+c2IUJlA8=
+		azQgCSpueVGhAtmbf3ddH/M68tY=
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		We+5B2Sf9wub25vWjo+c2IUJlA8=
+		azQgCSpueVGhAtmbf3ddH/M68tY=
 		</data>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		bO6TqHPaTiTAlJrxAN3okd68dbY=
+		EoYARXLrh7uhPshmUyoSyvPQ59E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -81,14 +81,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MrH/FNnDalxS+5VJ4QRRAnUqLC86cqYYOo3awl2TiMU=
+			w+rg8v14Be9A5qcIv881IzkUlshvOxCJAI4cHXpeKW8=
 			</data>
 		</dict>
 		<key>Modules/DreamerlySdk.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			l30/xTbV3T7xYjjKy9Z0OxFknyitFzn7dTbQItIc8B0=
+			Y4YXzSvFe2jXR5RRqIjtVSa9Ta5Vjnek3+04ux7EO5s=
 			</data>
 		</dict>
 		<key>Modules/DreamerlySdk.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -102,28 +102,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			l30/xTbV3T7xYjjKy9Z0OxFknyitFzn7dTbQItIc8B0=
+			Y4YXzSvFe2jXR5RRqIjtVSa9Ta5Vjnek3+04ux7EO5s=
 			</data>
 		</dict>
 		<key>Modules/DreamerlySdk.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8GIFffCKkbO07++QO0llNdjDdvlKypDg5A4ljWCmq1s=
+			tXo1BVBnBDwk6SyXPjgCgeTJjQdTrQ7psdL2NGPIaBw=
 			</data>
 		</dict>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MrH/FNnDalxS+5VJ4QRRAnUqLC86cqYYOo3awl2TiMU=
+			w+rg8v14Be9A5qcIv881IzkUlshvOxCJAI4cHXpeKW8=
 			</data>
 		</dict>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			p0LFt8zkf2DbUb9i97JweHLwrFu+purXKPEw0SUvo6M=
+			3oETodBU8YcspsxPjiWvO5n9/aaHVdrpn1oztdSexrQ=
 			</data>
 		</dict>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -137,14 +137,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			p0LFt8zkf2DbUb9i97JweHLwrFu+purXKPEw0SUvo6M=
+			3oETodBU8YcspsxPjiWvO5n9/aaHVdrpn1oztdSexrQ=
 			</data>
 		</dict>
 		<key>Modules/DreamerlySdk.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gmPqEfGRtlmNny0LKMSV8gCqSDZsZL7lwK/iR1rKqA4=
+			1vT0MYNqdoVLIZbjP6tKAyPOu1HYQXQXKLn5kfjw7hY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
