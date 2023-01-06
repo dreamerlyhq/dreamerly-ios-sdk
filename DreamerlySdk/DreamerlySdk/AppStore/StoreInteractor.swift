@@ -14,74 +14,69 @@ import SwiftyStoreKit
 public protocol StoreInteractor {
     func getProducts(ids: [String]) -> AnyPublisher<Set<SKProduct>, Error>
     func purchaseProduct(productId: String) -> AnyPublisher<String, Error>
-    func checkNftStatus(transactionId: String, apiKey: String) -> AnyPublisher<String, Error>
+    func checkNftStatus(transactionMetadataId: String, apiKey: String) -> AnyPublisher<NftTransactionData, Error>
     func fetchReceipt() -> AnyPublisher<Data, Error>
-//    func sendReceiptData(dmIosPurchaseData: DmIosPurchaseData,
-//                         dmNftData: DmNftData,
-//                         apiKey: String) -> AnyPublisher<Data, Error>
+    func createNftTransaction(payload: CreateNftTransactionData,
+                         apiKey: String) -> AnyPublisher<String, Error>
 }
 
 //// MARK: - Public data object
-//public struct DmIosPurchaseData {
-//    public init(transactionId: String, productId: String, transactionDateTime: String, receiptData: Data, customerId: String) {
-//        self.transactionId = transactionId
-//        self.productId = productId
-//        self.transactionDateTime = transactionDateTime
-//        self.receiptData = receiptData
-//        self.customerId = customerId
-//    }
-//
-//    public let transactionId: String
-//    public let productId: String
-//    public let transactionDateTime: String
-//    public let receiptData: Data
-//    public let customerId: String
-//}
-//
-//public struct DmNftData {
-//    public init(nftCollectionId: String, nftMetadata: String, nftMetadataIp: String, nftDisplayName: String, nftDescription: String, nftImageUrl: String, fromAddress: String, toAddress: String, chainId: String) {
-//        self.nftCollectionId = nftCollectionId
-//        self.nftMetadata = nftMetadata
-//        self.nftMetadataIp = nftMetadataIp
-//        self.nftDisplayName = nftDisplayName
-//        self.nftDescription = nftDescription
-//        self.nftImageUrl = nftImageUrl
-//        self.fromAddress = fromAddress
-//        self.toAddress = toAddress
-//        self.chainId = chainId
-//    }
-//
-//    public let nftCollectionId: String
-//    public let nftMetadata: String
-//    public let nftMetadataIp: String
-//    public let nftDisplayName: String
-//    public let nftDescription: String
-//    public let nftImageUrl: String
-//    public let fromAddress: String
-//    public let toAddress: String
-//    public let chainId: String
-//}
-//
-//// MARK: - Real
-//
-//struct DmPayloadData: Codable {
-//    let transactionId: String
-//    let productId: String
-//    let transactionDateTime: String
-//    let receiptData: String
-//    let customerId: String
-//    let nftCollectionId: String
-//    let nftMetadata: String
-//    let nftMetadataIp: String
-//    let nftDisplayName: String
-//    let nftDescription: String
-//    let nftImageUrl: String
-//    let fromAddress: String
-//    let toAddress: String
-//    let chainId: String
-//    let platform: String
-//    let status: String
-//}
+
+public struct CreateNftTransactionData: Codable {
+    public init(apple_transaction_id: String, from_address: String, to_address: String, chain_id: String, platform: String, apple_product_id: String, receipt_data: String, purchase_date_time: String, nft_display_name: String, nft_description: String, nft_image_url: String, nft_collection_id: String, nft_collection_contract_address: String, apple_customer_id: String) {
+        self.apple_transaction_id = apple_transaction_id
+        self.from_address = from_address
+        self.to_address = to_address
+        self.chain_id = chain_id
+        self.platform = platform
+        self.apple_product_id = apple_product_id
+        self.receipt_data = receipt_data
+        self.purchase_date_time = purchase_date_time
+        self.nft_display_name = nft_display_name
+        self.nft_description = nft_description
+        self.nft_image_url = nft_image_url
+        self.nft_collection_id = nft_collection_id
+        self.nft_collection_contract_address = nft_collection_contract_address
+        self.apple_customer_id = apple_customer_id
+    }
+    
+    public let apple_transaction_id: String
+    public let from_address: String
+    public let to_address: String
+    public let chain_id: String
+    public let platform: String
+    public let apple_product_id: String
+    public let receipt_data: String
+    public let purchase_date_time: String
+    public let nft_display_name: String
+    public let nft_description: String
+    public let nft_image_url: String
+    public let nft_collection_id: String
+    public let nft_collection_contract_address: String
+    public let apple_customer_id: String
+}
+
+public struct NftMetadata: Codable {
+    public var name: String
+    public var description: String
+    public var image: String
+    public var attributes: [String]
+}
+
+public struct NftOnChain: Codable {
+    public var token_id: Int
+    public var owner: String
+    public var tx_id: String
+    public var smart_contract_address: String
+    public var chain: String
+}
+
+public struct NftTransactionData: Codable {
+    public var id: String
+    public var metadata: NftMetadata
+    public var on_chain: NftOnChain
+    public var status: String
+}
 
 public struct RealStoreInteractor: StoreInteractor {
 
@@ -147,33 +142,44 @@ public struct RealStoreInteractor: StoreInteractor {
         .eraseToAnyPublisher()
     }
     
-    public func checkNftStatus(transactionId: String, apiKey: String) -> AnyPublisher<String, Error> {
+    public func checkNftStatus(transactionMetadataId: String, apiKey: String) -> AnyPublisher<NftTransactionData, Error> {
         return Future { promise in
-            let url = URL(string: "https://q84s1po7xi.execute-api.us-east-1.amazonaws.com/prod/nfts/" + transactionId)!
+            let url = URL(string: "https://test-api.dreamerly.com/nfts/" + transactionMetadataId)!
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
             
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                // TODO figure out how to handle error and retry case here that don't make client redo the IAP flow w/ Apple
                 if let error = error {
                     print ("error: \(error)")
                     promise(.failure(error))
                     return
                 }
-                guard let response = response as? HTTPURLResponse,
-                    (200...299).contains(response.statusCode) else {
-                    print ("server error")
-                    promise(.success("Failed"))
-                    return
-                }
-                if let mimeType = response.mimeType,
-                    mimeType == "application/json",
-                   let data = data,
-                    let dataString = String(data: data, encoding: .utf8) {
+//                guard let response = response as? HTTPURLResponse,
+//                    (200...299).contains(response.statusCode) else {
+//                    print ("server error")
+//                    promise(.failure(error))
+//                    return
+//                }
+                let decoder = JSONDecoder()
+                if let data = data,
+                   let dataString = String(data: data, encoding: .utf8) {
+                    print(data)
                     print ("got data: \(dataString)")
-                    promise(.success(dataString))
+                    
+                    let dataObj = Data(dataString.utf8)
+                    print(dataObj)
+                    do {
+                        let nftData = try decoder.decode(NftTransactionData.self, from: dataObj)
+                        print("thanh start")
+                        print(nftData)
+                        print(nftData.status)
+                        promise(.success(nftData))
+                    } catch {
+                        print(error.localizedDescription)
+                        promise(.failure(error))
+                    }
                 }
             }
             task.resume()
@@ -198,53 +204,48 @@ public struct RealStoreInteractor: StoreInteractor {
         .eraseToAnyPublisher()
     }
     
-//    public func sendReceiptData(dmIosPurchaseData: DmIosPurchaseData,
-//                                dmNftData: DmNftData,
-//                                apiKey: String) -> AnyPublisher<Data, Error> {
-//
-//        return Deferred {
-//            Future { promise in
-//                let payloadData = DmPayloadData(transactionId: dmIosPurchaseData.transactionId, productId: dmIosPurchaseData.productId, transactionDateTime: dmIosPurchaseData.transactionDateTime, receiptData: dmIosPurchaseData.receiptData.base64EncodedString(), customerId: dmIosPurchaseData.customerId, nftCollectionId: dmNftData.nftCollectionId, nftMetadata: dmNftData.nftMetadata, nftMetadataIp: dmNftData.nftMetadataIp, nftDisplayName: dmNftData.nftDisplayName, nftDescription: dmNftData.nftDescription, nftImageUrl: dmNftData.nftImageUrl, fromAddress: dmNftData.fromAddress, toAddress: dmNftData.toAddress, chainId: dmNftData.chainId, platform: "ios", status: "PURCHASED")
-//
-//                guard let uploadData = try? JSONEncoder().encode(payloadData) else {
-//                    promise(.success(dmIosPurchaseData.receiptData))
-//                    return
-//                }
-//
-//                let url = URL(string: "https://q84s1po7xi.execute-api.us-east-1.amazonaws.com/prod/receipt")!
-//                var request = URLRequest(url: url)
-//                request.httpMethod = "POST"
-//                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//                request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
-//
-//                let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
-//                    // TODO figure out how to handle error and retry case here that don't make client redo the IAP flow w/ Apple
-//                    if let error = error {
-//                        print ("error: \(error)")
-//                        promise(.failure(error))
-//                        return
-//                    }
-//                    guard let response = response as? HTTPURLResponse,
-//                        (200...299).contains(response.statusCode) else {
-//                        print ("server error")
-//                        promise(.success(dmIosPurchaseData.receiptData))
-//                        return
-//                    }
-//                    if let mimeType = response.mimeType,
-//                        mimeType == "application/json",
-//                        let data = data,
-//                        let dataString = String(data: data, encoding: .utf8) {
-//                        print(data)
-//                        print ("got data: \(dataString)")
-//                        promise(.success(dmIosPurchaseData.receiptData))
-//                    }
-//                }
-//                task.resume()
-//            }
-//        }
-//        .eraseToAnyPublisher()
-//
-//    }
+    public func createNftTransaction(payload: CreateNftTransactionData,
+                                apiKey: String) -> AnyPublisher<String, Error> {
+
+        return Deferred {
+            Future { promise in
+
+                guard let uploadData = try? JSONEncoder().encode(payload) else {
+                    promise(.success("Failed"))
+                    return
+                }
+
+                let url = URL(string: "https://test-api.dreamerly.com/receipt")!
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
+
+                let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
+                    if let error = error {
+                        print ("error: \(error)")
+                        promise(.failure(error))
+                        return
+                    }
+                    guard let response = response as? HTTPURLResponse,
+                        (200...299).contains(response.statusCode) else {
+                        print ("server error")
+                        promise(.success("Server Error"))
+                        return
+                    }
+                    if let data = data,
+                        let dataString = String(data: data, encoding: .utf8) {
+                        print(data)
+                        print ("got data: \(dataString)")
+                        promise(.success(dataString))
+                    }
+                }
+                task.resume()
+            }
+        }
+        .eraseToAnyPublisher()
+
+    }
 }
 
 public final class StubStoreInteractor: StoreInteractor {
@@ -259,7 +260,7 @@ public final class StubStoreInteractor: StoreInteractor {
         return Empty(completeImmediately: true).eraseToAnyPublisher()
     }
     
-    public func checkNftStatus(transactionId: String, apiKey: String) -> AnyPublisher<String, Error> {
+    public func checkNftStatus(transactionMetadataId: String, apiKey: String) -> AnyPublisher<NftTransactionData, Error> {
         return Empty(completeImmediately: true).eraseToAnyPublisher()
     }
 
@@ -267,9 +268,8 @@ public final class StubStoreInteractor: StoreInteractor {
         return Empty(completeImmediately: true).eraseToAnyPublisher()
     }
     
-//    public func sendReceiptData(dmIosPurchaseData: DmIosPurchaseData,
-//                                dmNftData: DmNftData,
-//                                apiKey: String) -> AnyPublisher<Data, Error> {
-//        return Empty(completeImmediately: true).eraseToAnyPublisher()
-//    }
+    public func createNftTransaction(payload: CreateNftTransactionData,
+                                apiKey: String) -> AnyPublisher<String, Error> {
+        return Empty(completeImmediately: true).eraseToAnyPublisher()
+    }
 }
