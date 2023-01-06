@@ -1,0 +1,103 @@
+{
+  "pins" : [
+    {
+      "identity" : "amplify-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/amplify-swift",
+      "state" : {
+        "revision" : "9de8030001dad79808bc005cecf7456c1e6ecace",
+        "version" : "1.28.4"
+      }
+    },
+    {
+      "identity" : "aws-appsync-realtime-client-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git",
+      "state" : {
+        "revision" : "da88cf1cab82e281e7277cd9feb9efc87a057041",
+        "version" : "2.1.1"
+      }
+    },
+    {
+      "identity" : "aws-sdk-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+      "state" : {
+        "revision" : "9b7677c9b39ec32a99df54aa9af39166ea50c34e",
+        "version" : "2.29.1"
+      }
+    },
+    {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "55fa5ed941fbdc72a17369c8bbf411b800da8301"
+      }
+    },
+    {
+      "identity" : "dreamerly-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dreamerlyhq/dreamerly-ios-sdk",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c9ed7386c17cad4cc7ee88a82f99b22f8a8c42ad"
+      }
+    },
+    {
+      "identity" : "environmentoverrides",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nalexn/EnvironmentOverrides",
+      "state" : {
+        "revision" : "d0b763a678d254e51c74c48e83119bd063250ba3",
+        "version" : "0.0.4"
+      }
+    },
+    {
+      "identity" : "glaip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tuanquanghpvn/Glaip",
+      "state" : {
+        "revision" : "0058af34894796eac1fa43e339bbc7950da68187"
+      }
+    },
+    {
+      "identity" : "sqlite.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/SQLite.swift.git",
+      "state" : {
+        "revision" : "5f5ad81ac0d0a0f3e56e39e646e8423c617df523",
+        "version" : "0.13.2"
+      }
+    },
+    {
+      "identity" : "starscream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daltoniam/Starscream",
+      "state" : {
+        "revision" : "df8d82047f6654d8e4b655d1b1525c64e1059d21",
+        "version" : "4.0.4"
+      }
+    },
+    {
+      "identity" : "swiftystorekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bizz84/SwiftyStoreKit",
+      "state" : {
+        "branch" : "master",
+        "revision" : "f3265c7c211907ad913102c61c3972b880f0675c"
+      }
+    },
+    {
+      "identity" : "walletconnectswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/WalletConnect/WalletConnectSwift.git",
+      "state" : {
+        "revision" : "e0bbfd16d5c54a7aa7e316956d765399c6332fa2",
+        "version" : "1.7.0"
+      }
+    }
+  ],
+  "version" : 2
+}
