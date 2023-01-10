@@ -1,56 +1,60 @@
-#  Purchase NFT SwiftUI - Dreamerly Sample
+### Articles related to this project
 
-Purchase NFT is a sample app demonstrating the proper methods for using Dreamerly's SDK. This sample uses only front-end components - no back-end needed.
+* [Clean Architecture for SwiftUI](https://nalexn.github.io/clean-architecture-swiftui/?utm_source=nalexn_github)
+* [Programmatic navigation in SwiftUI project](https://nalexn.github.io/swiftui-deep-linking/?utm_source=nalexn_github)
+* [Separation of Concerns in Software Design](https://nalexn.github.io/separation-of-concerns/?utm_source=nalexn_github)
 
-Sign up for a free Dreamerly account [here](https://www.app.dreamerly.com).
+---
 
-## Requirements
+# Clean Architecture for SwiftUI + Combine
 
-This sample uses:
+## Key features
+* Vanilla **SwiftUI** + **Combine** implementation
+* Decoupled **Presentation**, **Business Logic**, and **Data Access** layers
+* Full test coverage, including the UI (thanks to the [ViewInspector](https://github.com/nalexn/ViewInspector))
+* **Redux**-like centralized `AppState` as the single source of truth
+* Data persistence with **CoreData**
+* Native SwiftUI dependency injection
+* **Programmatic navigation**. Push notifications with deep link
+* Simple yet flexible networking layer built on Generics
+* Handling of the system events (such as `didBecomeActive`, `willResignActive`)
+* Built with SOLID, DRY, KISS, YAGNI in mind
+* Designed for scalability. It can be used as a reference for building large production apps
 
-- SwiftUI
-- Xcode 14.0
-- iOS 16.0
-- Swift 5
+## Architecture overview
 
+<p align="center">
+  <img src="https://github.com/nalexn/blob_files/blob/master/images/swiftui_arc_001.png?raw=true" alt="Diagram"/>
+</p>
 
-## Features
+### Presentation Layer
 
-| Feature                          | Sample Project Location                   |
-| -------------------------------- | ----------------------------------------- |
-| Get Apple product data  | [UI/Screens/NftDetailView](https://github.com/dreamerlyhq/dreamerly-ios-sdk/blob/main/examples/purchase-nft-ios-app/DreamerlyNFT/UI/Screens/NftDetailView/NftDetailView.swift) |
-| Purchase product through In-App Purchase         | [UI/Screens/NftDetailView](https://github.com/dreamerlyhq/dreamerly-ios-sdk/blob/main/examples/purchase-nft-ios-app/DreamerlyNFT/UI/Screens/NftDetailView/NftDetailView.swift) |
-| Fetch purchase's receipt   | [UI/Screens/NftDetailView](https://github.com/dreamerlyhq/dreamerly-ios-sdk/blob/main/examples/purchase-nft-ios-app/DreamerlyNFT/UI/Screens/NftDetailView/NftDetailView.swift) |
-| Create NFT transaction           | [UI/Screens/NftDetailView](https://github.com/dreamerlyhq/dreamerly-ios-sdk/blob/main/examples/purchase-nft-ios-app/DreamerlyNFT/UI/Screens/NftDetailView/NftDetailView.swift) |
-| Check NFT transaction status             | [UI/Screens/NftDetailView](https://github.com/dreamerlyhq/dreamerly-ios-sdk/blob/main/examples/purchase-nft-ios-app/DreamerlyNFT/UI/Screens/NftDetailView/NftDetailView.swift) |
+**SwiftUI views** that contain no business logic and are a function of the state.
 
-## Setup & Run
+Side effects are triggered by the user's actions (such as a tap on a button) or view lifecycle event `onAppear` and are forwarded to the `Interactors`.
 
-### Prerequisites
-- Be sure to have an [Apple Developer Account](https://developer.apple.com/account/).
-    - You must join the [Apple Developer Program](https://developer.apple.com/programs/) to create In-App Purchases.
-    - You must sign the [Paid Applications Agreement](https://docs.revenuecat.com/docs/getting-started#3-store-setup) and complete your [bank/tax information](https://docs.revenuecat.com/docs/getting-started#3-store-setup) to test In-App Purchases.
-- Be sure to set up a [Sandbox Tester Account](https://help.apple.com/app-store-connect/#/dev8b997bee1) for testing purposes.
-- Get your API key from Dreamerly website. If you don't have a Dreamerly account yet, sign up for free [here](https://app.dreamerly.com).
-- If you're testing on a simulator instead of a physical device, be sure to set up your [StoreKit configuration files](https://docs.revenuecat.com/docs/apple-app-store#ios-14-only-testing-on-the-simulator).
-- Create In App Purchase item in your App Store Connect with the same product Id as iosId in file [NftData](https://github.com/dreamerlyhq/dreamerly-ios-sdk/blob/main/examples/purchase-nft-ios-app/DreamerlyNFT/Models/NftData.swift)
+State and business logic layer (`AppState` + `Interactors`) are natively injected into the view hierarchy with `@Environment`.
 
-### Steps to Run
-1. Open the file `DreamerlyNft.xcworkspace` in Xcode.
-2. On the **General** tab of the project editor, match the bundle ID to your bundle ID in App Store Connect.
-    
-4. On the **Signing & Capabilities** tab of the project editor, select the correct development team from the **Team** dropdown.  
-    
-5. Build the app and run it on your device. 
+### Business Logic Layer
 
-### Example Flow: Purchasing a Subscription
+Business Logic Layer is represented by `Interactors`. 
 
-1. On the profile page, enter your wallet.
-2. On the home page, select an NFT.
-3. Tap on Buy button and finish the In-App Purchase flow.
-4. Reload the app and reselect the NFT that you have purchase after 2 days to see the information of the NFT that has been minted to your wallet.
+Interactors receive requests to perform work, such as obtaining data from an external source or making computations, but they never return data back directly.
 
-## Support
+Instead, they forward the result to the `AppState` or to a `Binding`. The latter is used when the result of work (the data) is used locally by one View and does not belong to the `AppState`.
 
-TBD
+[Previously](https://github.com/nalexn/clean-architecture-swiftui/releases/tag/1.0), this app did not use CoreData for persistence, and all loaded data were stored in the `AppState`.
 
+With the persistence layer in place we have a choice - either to load the DB content onto the `AppState`, or serve the data from `Interactors` on an on-demand basis through `Binding`.
+
+The first option suits best when you don't have a lot of data, for example, when you just store the last used login email in the `UserDefaults`. Then, the corresponding string value can just be loaded onto the `AppState` at launch and updated by the `Interactor` when the user changes the input.
+
+The second option is better when you have massive amounts of data and introduce a fully-fledged database for storing it locally.
+
+### Data Access Layer
+
+Data Access Layer is represented by `Repositories`.
+
+Repositories provide asynchronous API (`Publisher` from Combine) for making [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on the backend or a local database. They don't contain business logic, neither do they mutate the `AppState`. Repositories are accessible and used only by the Interactors.
+
+---

@@ -1235,16 +1235,6 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "DreamerlySdk",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "SwiftUI",
         "printedName": "SwiftUI",
         "declKind": "Import",
@@ -1481,13 +1471,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyPublisher",
-                "printedName": "Combine.AnyPublisher<Swift.String, Swift.Error>",
+                "printedName": "Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "NftTransactionData",
+                    "printedName": "DreamerlySdk.NftTransactionData",
+                    "usr": "s:12DreamerlySdk18NftTransactionDataV"
                   },
                   {
                     "kind": "TypeNominal",
@@ -1512,8 +1502,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12DreamerlySdk15StoreInteractorP20createNftTransaction7payload6apiKey7Combine12AnyPublisherVySSs5Error_pGAA06CreatefG4DataV_SStF",
-            "mangledName": "$s12DreamerlySdk15StoreInteractorP20createNftTransaction7payload6apiKey7Combine12AnyPublisherVySSs5Error_pGAA06CreatefG4DataV_SStF",
+            "usr": "s:12DreamerlySdk15StoreInteractorP20createNftTransaction7payload6apiKey7Combine12AnyPublisherVyAA0fG4DataVs5Error_pGAA06CreatefgN0V_SStF",
+            "mangledName": "$s12DreamerlySdk15StoreInteractorP20createNftTransaction7payload6apiKey7Combine12AnyPublisherVyAA0fG4DataVs5Error_pGAA06CreatefgN0V_SStF",
             "moduleName": "DreamerlySdk",
             "genericSig": "<τ_0_0 where τ_0_0 : DreamerlySdk.StoreInteractor>",
             "sugared_genericSig": "<Self where Self : DreamerlySdk.StoreInteractor>",
@@ -2335,26 +2325,35 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "NftMetadata",
-        "printedName": "NftMetadata",
+        "name": "NftData",
+        "printedName": "NftData",
         "children": [
           {
             "kind": "Var",
-            "name": "name",
-            "printedName": "name",
+            "name": "metadata",
+            "printedName": "metadata",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12DreamerlySdk11NftMetadataV4nameSSvp",
-            "mangledName": "$s12DreamerlySdk11NftMetadataV4nameSSvp",
+            "usr": "s:12DreamerlySdk7NftDataV8metadataSSSgvp",
+            "mangledName": "$s12DreamerlySdk7NftDataV8metadataSSSgvp",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
+              "HasInitialValue",
               "HasStorage",
               "AccessControl"
             ],
@@ -2367,271 +2366,8 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV4nameSSvg",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV4nameSSvg",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV4nameSSvs",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV4nameSSvs",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV4nameSSvM",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV4nameSSvM",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "description",
-            "printedName": "description",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12DreamerlySdk11NftMetadataV11descriptionSSvp",
-            "mangledName": "$s12DreamerlySdk11NftMetadataV11descriptionSSvp",
-            "moduleName": "DreamerlySdk",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV11descriptionSSvg",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV11descriptionSSvg",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV11descriptionSSvs",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV11descriptionSSvs",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV11descriptionSSvM",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV11descriptionSSvM",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "image",
-            "printedName": "image",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12DreamerlySdk11NftMetadataV5imageSSvp",
-            "mangledName": "$s12DreamerlySdk11NftMetadataV5imageSSvp",
-            "moduleName": "DreamerlySdk",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV5imageSSvg",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV5imageSSvg",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV5imageSSvs",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV5imageSSvs",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV5imageSSvM",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV5imageSSvM",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "attributes",
-            "printedName": "attributes",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[Swift.String]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12DreamerlySdk11NftMetadataV10attributesSaySSGvp",
-            "mangledName": "$s12DreamerlySdk11NftMetadataV10attributesSaySSGvp",
-            "moduleName": "DreamerlySdk",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -2640,12 +2376,12 @@
                         "usr": "s:SS"
                       }
                     ],
-                    "usr": "s:Sa"
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV10attributesSaySSGvg",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV10attributesSaySSGvg",
+                "usr": "s:12DreamerlySdk7NftDataV8metadataSSSgvg",
+                "mangledName": "$s12DreamerlySdk7NftDataV8metadataSSSgvg",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "get"
@@ -2662,8 +2398,8 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[Swift.String]",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -2672,12 +2408,12 @@
                         "usr": "s:SS"
                       }
                     ],
-                    "usr": "s:Sa"
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV10attributesSaySSGvs",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV10attributesSaySSGvs",
+                "usr": "s:12DreamerlySdk7NftDataV8metadataSSSgvs",
+                "mangledName": "$s12DreamerlySdk7NftDataV8metadataSSSgvs",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "set"
@@ -2694,8 +2430,448 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk11NftMetadataV10attributesSaySSGvM",
-                "mangledName": "$s12DreamerlySdk11NftMetadataV10attributesSaySSGvM",
+                "usr": "s:12DreamerlySdk7NftDataV8metadataSSSgvM",
+                "mangledName": "$s12DreamerlySdk7NftDataV8metadataSSSgvM",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nft_display_name",
+            "printedName": "nft_display_name",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12DreamerlySdk7NftDataV16nft_display_nameSSSgvp",
+            "mangledName": "$s12DreamerlySdk7NftDataV16nft_display_nameSSSgvp",
+            "moduleName": "DreamerlySdk",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV16nft_display_nameSSSgvg",
+                "mangledName": "$s12DreamerlySdk7NftDataV16nft_display_nameSSSgvg",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV16nft_display_nameSSSgvs",
+                "mangledName": "$s12DreamerlySdk7NftDataV16nft_display_nameSSSgvs",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV16nft_display_nameSSSgvM",
+                "mangledName": "$s12DreamerlySdk7NftDataV16nft_display_nameSSSgvM",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nft_description",
+            "printedName": "nft_description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12DreamerlySdk7NftDataV15nft_descriptionSSSgvp",
+            "mangledName": "$s12DreamerlySdk7NftDataV15nft_descriptionSSSgvp",
+            "moduleName": "DreamerlySdk",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV15nft_descriptionSSSgvg",
+                "mangledName": "$s12DreamerlySdk7NftDataV15nft_descriptionSSSgvg",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV15nft_descriptionSSSgvs",
+                "mangledName": "$s12DreamerlySdk7NftDataV15nft_descriptionSSSgvs",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV15nft_descriptionSSSgvM",
+                "mangledName": "$s12DreamerlySdk7NftDataV15nft_descriptionSSSgvM",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "image_url",
+            "printedName": "image_url",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12DreamerlySdk7NftDataV9image_urlSSSgvp",
+            "mangledName": "$s12DreamerlySdk7NftDataV9image_urlSSSgvp",
+            "moduleName": "DreamerlySdk",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV9image_urlSSSgvg",
+                "mangledName": "$s12DreamerlySdk7NftDataV9image_urlSSSgvg",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV9image_urlSSSgvs",
+                "mangledName": "$s12DreamerlySdk7NftDataV9image_urlSSSgvs",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV9image_urlSSSgvM",
+                "mangledName": "$s12DreamerlySdk7NftDataV9image_urlSSSgvM",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "token_id",
+            "printedName": "token_id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12DreamerlySdk7NftDataV8token_idSSSgvp",
+            "mangledName": "$s12DreamerlySdk7NftDataV8token_idSSSgvp",
+            "moduleName": "DreamerlySdk",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV8token_idSSSgvg",
+                "mangledName": "$s12DreamerlySdk7NftDataV8token_idSSSgvg",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV8token_idSSSgvs",
+                "mangledName": "$s12DreamerlySdk7NftDataV8token_idSSSgvs",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk7NftDataV8token_idSSSgvM",
+                "mangledName": "$s12DreamerlySdk7NftDataV8token_idSSSgvM",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -2709,9 +2885,9 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "NftMetadata",
-                "printedName": "DreamerlySdk.NftMetadata",
-                "usr": "s:12DreamerlySdk11NftMetadataV"
+                "name": "NftData",
+                "printedName": "DreamerlySdk.NftData",
+                "usr": "s:12DreamerlySdk7NftDataV"
               },
               {
                 "kind": "TypeNominal",
@@ -2721,8 +2897,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12DreamerlySdk11NftMetadataV4fromACs7Decoder_p_tKcfc",
-            "mangledName": "$s12DreamerlySdk11NftMetadataV4fromACs7Decoder_p_tKcfc",
+            "usr": "s:12DreamerlySdk7NftDataV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s12DreamerlySdk7NftDataV4fromACs7Decoder_p_tKcfc",
             "moduleName": "DreamerlySdk",
             "implicit": true,
             "throwing": true,
@@ -2746,8 +2922,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12DreamerlySdk11NftMetadataV6encode2toys7Encoder_p_tKF",
-            "mangledName": "$s12DreamerlySdk11NftMetadataV6encode2toys7Encoder_p_tKF",
+            "usr": "s:12DreamerlySdk7NftDataV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s12DreamerlySdk7NftDataV6encode2toys7Encoder_p_tKF",
             "moduleName": "DreamerlySdk",
             "implicit": true,
             "throwing": true,
@@ -2755,8 +2931,8 @@
           }
         ],
         "declKind": "Struct",
-        "usr": "s:12DreamerlySdk11NftMetadataV",
-        "mangledName": "$s12DreamerlySdk11NftMetadataV",
+        "usr": "s:12DreamerlySdk7NftDataV",
+        "mangledName": "$s12DreamerlySdk7NftDataV",
         "moduleName": "DreamerlySdk",
         "declAttributes": [
           "AccessControl"
@@ -2780,26 +2956,35 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "NftOnChain",
-        "printedName": "NftOnChain",
+        "name": "NftBlockchain",
+        "printedName": "NftBlockchain",
         "children": [
           {
             "kind": "Var",
-            "name": "token_id",
-            "printedName": "token_id",
+            "name": "from_address",
+            "printedName": "from_address",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12DreamerlySdk10NftOnChainV8token_idSivp",
-            "mangledName": "$s12DreamerlySdk10NftOnChainV8token_idSivp",
+            "usr": "s:12DreamerlySdk13NftBlockchainV12from_addressSSSgvp",
+            "mangledName": "$s12DreamerlySdk13NftBlockchainV12from_addressSSSgvp",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
+              "HasInitialValue",
               "HasStorage",
               "AccessControl"
             ],
@@ -2812,14 +2997,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV8token_idSivg",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV8token_idSivg",
+                "usr": "s:12DreamerlySdk13NftBlockchainV12from_addressSSSgvg",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV12from_addressSSSgvg",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "get"
@@ -2836,14 +3029,22 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV8token_idSivs",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV8token_idSivs",
+                "usr": "s:12DreamerlySdk13NftBlockchainV12from_addressSSSgvs",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV12from_addressSSSgvs",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "set"
@@ -2860,8 +3061,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV8token_idSivM",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV8token_idSivM",
+                "usr": "s:12DreamerlySdk13NftBlockchainV12from_addressSSSgvM",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV12from_addressSSSgvM",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -2870,21 +3071,30 @@
           },
           {
             "kind": "Var",
-            "name": "owner",
-            "printedName": "owner",
+            "name": "to_address",
+            "printedName": "to_address",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12DreamerlySdk10NftOnChainV5ownerSSvp",
-            "mangledName": "$s12DreamerlySdk10NftOnChainV5ownerSSvp",
+            "usr": "s:12DreamerlySdk13NftBlockchainV10to_addressSSSgvp",
+            "mangledName": "$s12DreamerlySdk13NftBlockchainV10to_addressSSSgvp",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
+              "HasInitialValue",
               "HasStorage",
               "AccessControl"
             ],
@@ -2897,14 +3107,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5ownerSSvg",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5ownerSSvg",
+                "usr": "s:12DreamerlySdk13NftBlockchainV10to_addressSSSgvg",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV10to_addressSSSgvg",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "get"
@@ -2921,14 +3139,22 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5ownerSSvs",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5ownerSSvs",
+                "usr": "s:12DreamerlySdk13NftBlockchainV10to_addressSSSgvs",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV10to_addressSSSgvs",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "set"
@@ -2945,8 +3171,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5ownerSSvM",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5ownerSSvM",
+                "usr": "s:12DreamerlySdk13NftBlockchainV10to_addressSSSgvM",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV10to_addressSSSgvM",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -2955,21 +3181,30 @@
           },
           {
             "kind": "Var",
-            "name": "tx_id",
-            "printedName": "tx_id",
+            "name": "asset_contract_address",
+            "printedName": "asset_contract_address",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12DreamerlySdk10NftOnChainV5tx_idSSvp",
-            "mangledName": "$s12DreamerlySdk10NftOnChainV5tx_idSSvp",
+            "usr": "s:12DreamerlySdk13NftBlockchainV22asset_contract_addressSSSgvp",
+            "mangledName": "$s12DreamerlySdk13NftBlockchainV22asset_contract_addressSSSgvp",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
+              "HasInitialValue",
               "HasStorage",
               "AccessControl"
             ],
@@ -2982,14 +3217,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5tx_idSSvg",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5tx_idSSvg",
+                "usr": "s:12DreamerlySdk13NftBlockchainV22asset_contract_addressSSSgvg",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV22asset_contract_addressSSSgvg",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "get"
@@ -3006,14 +3249,22 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5tx_idSSvs",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5tx_idSSvs",
+                "usr": "s:12DreamerlySdk13NftBlockchainV22asset_contract_addressSSSgvs",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV22asset_contract_addressSSSgvs",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "set"
@@ -3030,8 +3281,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5tx_idSSvM",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5tx_idSSvM",
+                "usr": "s:12DreamerlySdk13NftBlockchainV22asset_contract_addressSSSgvM",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV22asset_contract_addressSSSgvM",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -3040,21 +3291,30 @@
           },
           {
             "kind": "Var",
-            "name": "smart_contract_address",
-            "printedName": "smart_contract_address",
+            "name": "transaction_hash",
+            "printedName": "transaction_hash",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12DreamerlySdk10NftOnChainV22smart_contract_addressSSvp",
-            "mangledName": "$s12DreamerlySdk10NftOnChainV22smart_contract_addressSSvp",
+            "usr": "s:12DreamerlySdk13NftBlockchainV16transaction_hashSSSgvp",
+            "mangledName": "$s12DreamerlySdk13NftBlockchainV16transaction_hashSSSgvp",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
+              "HasInitialValue",
               "HasStorage",
               "AccessControl"
             ],
@@ -3067,14 +3327,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV22smart_contract_addressSSvg",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV22smart_contract_addressSSvg",
+                "usr": "s:12DreamerlySdk13NftBlockchainV16transaction_hashSSSgvg",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV16transaction_hashSSSgvg",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "get"
@@ -3091,14 +3359,22 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV22smart_contract_addressSSvs",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV22smart_contract_addressSSvs",
+                "usr": "s:12DreamerlySdk13NftBlockchainV16transaction_hashSSSgvs",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV16transaction_hashSSSgvs",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "set"
@@ -3115,93 +3391,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV22smart_contract_addressSSvM",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV22smart_contract_addressSSvM",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "chain",
-            "printedName": "chain",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12DreamerlySdk10NftOnChainV5chainSSvp",
-            "mangledName": "$s12DreamerlySdk10NftOnChainV5chainSSvp",
-            "moduleName": "DreamerlySdk",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5chainSSvg",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5chainSSvg",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5chainSSvs",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5chainSSvs",
-                "moduleName": "DreamerlySdk",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk10NftOnChainV5chainSSvM",
-                "mangledName": "$s12DreamerlySdk10NftOnChainV5chainSSvM",
+                "usr": "s:12DreamerlySdk13NftBlockchainV16transaction_hashSSSgvM",
+                "mangledName": "$s12DreamerlySdk13NftBlockchainV16transaction_hashSSSgvM",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -3215,9 +3406,9 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "NftOnChain",
-                "printedName": "DreamerlySdk.NftOnChain",
-                "usr": "s:12DreamerlySdk10NftOnChainV"
+                "name": "NftBlockchain",
+                "printedName": "DreamerlySdk.NftBlockchain",
+                "usr": "s:12DreamerlySdk13NftBlockchainV"
               },
               {
                 "kind": "TypeNominal",
@@ -3227,8 +3418,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12DreamerlySdk10NftOnChainV4fromACs7Decoder_p_tKcfc",
-            "mangledName": "$s12DreamerlySdk10NftOnChainV4fromACs7Decoder_p_tKcfc",
+            "usr": "s:12DreamerlySdk13NftBlockchainV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s12DreamerlySdk13NftBlockchainV4fromACs7Decoder_p_tKcfc",
             "moduleName": "DreamerlySdk",
             "implicit": true,
             "throwing": true,
@@ -3252,8 +3443,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12DreamerlySdk10NftOnChainV6encode2toys7Encoder_p_tKF",
-            "mangledName": "$s12DreamerlySdk10NftOnChainV6encode2toys7Encoder_p_tKF",
+            "usr": "s:12DreamerlySdk13NftBlockchainV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s12DreamerlySdk13NftBlockchainV6encode2toys7Encoder_p_tKF",
             "moduleName": "DreamerlySdk",
             "implicit": true,
             "throwing": true,
@@ -3261,8 +3452,8 @@
           }
         ],
         "declKind": "Struct",
-        "usr": "s:12DreamerlySdk10NftOnChainV",
-        "mangledName": "$s12DreamerlySdk10NftOnChainV",
+        "usr": "s:12DreamerlySdk13NftBlockchainV",
+        "mangledName": "$s12DreamerlySdk13NftBlockchainV",
         "moduleName": "DreamerlySdk",
         "declAttributes": [
           "AccessControl"
@@ -3291,8 +3482,8 @@
         "children": [
           {
             "kind": "Var",
-            "name": "id",
-            "printedName": "id",
+            "name": "transaction_id",
+            "printedName": "transaction_id",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3302,8 +3493,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12DreamerlySdk18NftTransactionDataV2idSSvp",
-            "mangledName": "$s12DreamerlySdk18NftTransactionDataV2idSSvp",
+            "usr": "s:12DreamerlySdk18NftTransactionDataV14transaction_idSSvp",
+            "mangledName": "$s12DreamerlySdk18NftTransactionDataV14transaction_idSSvp",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
               "HasStorage",
@@ -3324,8 +3515,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV2idSSvg",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV2idSSvg",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV14transaction_idSSvg",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV14transaction_idSSvg",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "get"
@@ -3348,8 +3539,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV2idSSvs",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV2idSSvs",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV14transaction_idSSvs",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV14transaction_idSSvs",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "set"
@@ -3366,8 +3557,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV2idSSvM",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV2idSSvM",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV14transaction_idSSvM",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV14transaction_idSSvM",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -3376,19 +3567,19 @@
           },
           {
             "kind": "Var",
-            "name": "metadata",
-            "printedName": "metadata",
+            "name": "nft",
+            "printedName": "nft",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "NftMetadata",
-                "printedName": "DreamerlySdk.NftMetadata",
-                "usr": "s:12DreamerlySdk11NftMetadataV"
+                "name": "NftData",
+                "printedName": "DreamerlySdk.NftData",
+                "usr": "s:12DreamerlySdk7NftDataV"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12DreamerlySdk18NftTransactionDataV8metadataAA0C8MetadataVvp",
-            "mangledName": "$s12DreamerlySdk18NftTransactionDataV8metadataAA0C8MetadataVvp",
+            "usr": "s:12DreamerlySdk18NftTransactionDataV3nftAA0cE0Vvp",
+            "mangledName": "$s12DreamerlySdk18NftTransactionDataV3nftAA0cE0Vvp",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
               "HasStorage",
@@ -3403,14 +3594,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NftMetadata",
-                    "printedName": "DreamerlySdk.NftMetadata",
-                    "usr": "s:12DreamerlySdk11NftMetadataV"
+                    "name": "NftData",
+                    "printedName": "DreamerlySdk.NftData",
+                    "usr": "s:12DreamerlySdk7NftDataV"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV8metadataAA0C8MetadataVvg",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8metadataAA0C8MetadataVvg",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV3nftAA0cE0Vvg",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV3nftAA0cE0Vvg",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "get"
@@ -3427,14 +3618,14 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "NftMetadata",
-                    "printedName": "DreamerlySdk.NftMetadata",
-                    "usr": "s:12DreamerlySdk11NftMetadataV"
+                    "name": "NftData",
+                    "printedName": "DreamerlySdk.NftData",
+                    "usr": "s:12DreamerlySdk7NftDataV"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV8metadataAA0C8MetadataVvs",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8metadataAA0C8MetadataVvs",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV3nftAA0cE0Vvs",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV3nftAA0cE0Vvs",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "set"
@@ -3451,8 +3642,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV8metadataAA0C8MetadataVvM",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8metadataAA0C8MetadataVvM",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV3nftAA0cE0VvM",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV3nftAA0cE0VvM",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -3461,19 +3652,19 @@
           },
           {
             "kind": "Var",
-            "name": "on_chain",
-            "printedName": "on_chain",
+            "name": "blockchain",
+            "printedName": "blockchain",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "NftOnChain",
-                "printedName": "DreamerlySdk.NftOnChain",
-                "usr": "s:12DreamerlySdk10NftOnChainV"
+                "name": "NftBlockchain",
+                "printedName": "DreamerlySdk.NftBlockchain",
+                "usr": "s:12DreamerlySdk13NftBlockchainV"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12DreamerlySdk18NftTransactionDataV8on_chainAA0C7OnChainVvp",
-            "mangledName": "$s12DreamerlySdk18NftTransactionDataV8on_chainAA0C7OnChainVvp",
+            "usr": "s:12DreamerlySdk18NftTransactionDataV10blockchainAA0C10BlockchainVvp",
+            "mangledName": "$s12DreamerlySdk18NftTransactionDataV10blockchainAA0C10BlockchainVvp",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
               "HasStorage",
@@ -3488,14 +3679,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NftOnChain",
-                    "printedName": "DreamerlySdk.NftOnChain",
-                    "usr": "s:12DreamerlySdk10NftOnChainV"
+                    "name": "NftBlockchain",
+                    "printedName": "DreamerlySdk.NftBlockchain",
+                    "usr": "s:12DreamerlySdk13NftBlockchainV"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV8on_chainAA0C7OnChainVvg",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8on_chainAA0C7OnChainVvg",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV10blockchainAA0C10BlockchainVvg",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV10blockchainAA0C10BlockchainVvg",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "get"
@@ -3512,14 +3703,14 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "NftOnChain",
-                    "printedName": "DreamerlySdk.NftOnChain",
-                    "usr": "s:12DreamerlySdk10NftOnChainV"
+                    "name": "NftBlockchain",
+                    "printedName": "DreamerlySdk.NftBlockchain",
+                    "usr": "s:12DreamerlySdk13NftBlockchainV"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV8on_chainAA0C7OnChainVvs",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8on_chainAA0C7OnChainVvs",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV10blockchainAA0C10BlockchainVvs",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV10blockchainAA0C10BlockchainVvs",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "set"
@@ -3536,8 +3727,93 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12DreamerlySdk18NftTransactionDataV8on_chainAA0C7OnChainVvM",
-                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8on_chainAA0C7OnChainVvM",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV10blockchainAA0C10BlockchainVvM",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV10blockchainAA0C10BlockchainVvM",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "chain_id",
+            "printedName": "chain_id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12DreamerlySdk18NftTransactionDataV8chain_idSSvp",
+            "mangledName": "$s12DreamerlySdk18NftTransactionDataV8chain_idSSvp",
+            "moduleName": "DreamerlySdk",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV8chain_idSSvg",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8chain_idSSvg",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV8chain_idSSvs",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8chain_idSSvs",
+                "moduleName": "DreamerlySdk",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12DreamerlySdk18NftTransactionDataV8chain_idSSvM",
+                "mangledName": "$s12DreamerlySdk18NftTransactionDataV8chain_idSSvM",
                 "moduleName": "DreamerlySdk",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -3919,13 +4195,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyPublisher",
-                "printedName": "Combine.AnyPublisher<Swift.String, Swift.Error>",
+                "printedName": "Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "NftTransactionData",
+                    "printedName": "DreamerlySdk.NftTransactionData",
+                    "usr": "s:12DreamerlySdk18NftTransactionDataV"
                   },
                   {
                     "kind": "TypeNominal",
@@ -3950,8 +4226,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12DreamerlySdk19RealStoreInteractorV20createNftTransaction7payload6apiKey7Combine12AnyPublisherVySSs5Error_pGAA06CreategH4DataV_SStF",
-            "mangledName": "$s12DreamerlySdk19RealStoreInteractorV20createNftTransaction7payload6apiKey7Combine12AnyPublisherVySSs5Error_pGAA06CreategH4DataV_SStF",
+            "usr": "s:12DreamerlySdk19RealStoreInteractorV20createNftTransaction7payload6apiKey7Combine12AnyPublisherVyAA0gH4DataVs5Error_pGAA06CreateghO0V_SStF",
+            "mangledName": "$s12DreamerlySdk19RealStoreInteractorV20createNftTransaction7payload6apiKey7Combine12AnyPublisherVyAA0gH4DataVs5Error_pGAA06CreateghO0V_SStF",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
               "AccessControl"
@@ -4194,13 +4470,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "AnyPublisher",
-                "printedName": "Combine.AnyPublisher<Swift.String, Swift.Error>",
+                "printedName": "Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "NftTransactionData",
+                    "printedName": "DreamerlySdk.NftTransactionData",
+                    "usr": "s:12DreamerlySdk18NftTransactionDataV"
                   },
                   {
                     "kind": "TypeNominal",
@@ -4225,8 +4501,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12DreamerlySdk19StubStoreInteractorC20createNftTransaction7payload6apiKey7Combine12AnyPublisherVySSs5Error_pGAA06CreategH4DataV_SStF",
-            "mangledName": "$s12DreamerlySdk19StubStoreInteractorC20createNftTransaction7payload6apiKey7Combine12AnyPublisherVySSs5Error_pGAA06CreategH4DataV_SStF",
+            "usr": "s:12DreamerlySdk19StubStoreInteractorC20createNftTransaction7payload6apiKey7Combine12AnyPublisherVyAA0gH4DataVs5Error_pGAA06CreateghO0V_SStF",
+            "mangledName": "$s12DreamerlySdk19StubStoreInteractorC20createNftTransaction7payload6apiKey7Combine12AnyPublisherVyAA0gH4DataVs5Error_pGAA06CreateghO0V_SStF",
             "moduleName": "DreamerlySdk",
             "declAttributes": [
               "Final",

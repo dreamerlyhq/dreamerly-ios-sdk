@@ -55,7 +55,7 @@ public protocol StoreInteractor {
   func purchaseProduct(productId: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
   func checkNftStatus(transactionMetadataId: Swift.String, apiKey: Swift.String) -> Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>
   func fetchReceipt() -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
-  func createNftTransaction(payload: DreamerlySdk.CreateNftTransactionData, apiKey: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
+  func createNftTransaction(payload: DreamerlySdk.CreateNftTransactionData, apiKey: Swift.String) -> Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>
 }
 public struct CreateNftTransactionData : Swift.Codable {
   public init(apple_transaction_id: Swift.String, from_address: Swift.String, to_address: Swift.String, chain_id: Swift.String, platform: Swift.String, apple_product_id: Swift.String, receipt_data: Swift.String, purchase_date_time: Swift.String, nft_display_name: Swift.String, nft_description: Swift.String, nft_image_url: Swift.String, nft_collection_id: Swift.String, nft_collection_contract_address: Swift.String, apple_customer_id: Swift.String)
@@ -76,27 +76,28 @@ public struct CreateNftTransactionData : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-public struct NftMetadata : Swift.Codable {
-  public var name: Swift.String
-  public var description: Swift.String
-  public var image: Swift.String
-  public var attributes: [Swift.String]
+public struct NftData : Swift.Codable {
+  public var metadata: Swift.String?
+  public var nft_display_name: Swift.String?
+  public var nft_description: Swift.String?
+  public var image_url: Swift.String?
+  public var token_id: Swift.String?
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-public struct NftOnChain : Swift.Codable {
-  public var token_id: Swift.Int
-  public var owner: Swift.String
-  public var tx_id: Swift.String
-  public var smart_contract_address: Swift.String
-  public var chain: Swift.String
+public struct NftBlockchain : Swift.Codable {
+  public var from_address: Swift.String?
+  public var to_address: Swift.String?
+  public var asset_contract_address: Swift.String?
+  public var transaction_hash: Swift.String?
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
 public struct NftTransactionData : Swift.Codable {
-  public var id: Swift.String
-  public var metadata: DreamerlySdk.NftMetadata
-  public var on_chain: DreamerlySdk.NftOnChain
+  public var transaction_id: Swift.String
+  public var nft: DreamerlySdk.NftData
+  public var blockchain: DreamerlySdk.NftBlockchain
+  public var chain_id: Swift.String
   public var status: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -107,7 +108,7 @@ public struct RealStoreInteractor : DreamerlySdk.StoreInteractor {
   public func purchaseProduct(productId: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
   public func checkNftStatus(transactionMetadataId: Swift.String, apiKey: Swift.String) -> Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>
   public func fetchReceipt() -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
-  public func createNftTransaction(payload: DreamerlySdk.CreateNftTransactionData, apiKey: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
+  public func createNftTransaction(payload: DreamerlySdk.CreateNftTransactionData, apiKey: Swift.String) -> Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>
 }
 final public class StubStoreInteractor : DreamerlySdk.StoreInteractor {
   public init()
@@ -115,7 +116,7 @@ final public class StubStoreInteractor : DreamerlySdk.StoreInteractor {
   final public func purchaseProduct(productId: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
   final public func checkNftStatus(transactionMetadataId: Swift.String, apiKey: Swift.String) -> Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>
   final public func fetchReceipt() -> Combine.AnyPublisher<Foundation.Data, Swift.Error>
-  final public func createNftTransaction(payload: DreamerlySdk.CreateNftTransactionData, apiKey: Swift.String) -> Combine.AnyPublisher<Swift.String, Swift.Error>
+  final public func createNftTransaction(payload: DreamerlySdk.CreateNftTransactionData, apiKey: Swift.String) -> Combine.AnyPublisher<DreamerlySdk.NftTransactionData, Swift.Error>
   @objc deinit
 }
 public struct LoginViewSdk : SwiftUI.View {
