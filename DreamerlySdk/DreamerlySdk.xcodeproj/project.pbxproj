@@ -26,7 +26,6 @@
 		928C6D862936E1A5005905FB /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 928C6D852936E1A5005905FB /* CryptoSwift */; };
 		92C18CCB292C854A00DC65C0 /* DreamerlySdk.docc in Sources */ = {isa = PBXBuildFile; fileRef = 92C18CCA292C854A00DC65C0 /* DreamerlySdk.docc */; };
 		92C18CCC292C854A00DC65C0 /* DreamerlySdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C18CC9292C854A00DC65C0 /* DreamerlySdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92C18CD3292C86EE00DC65C0 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C18CD2292C86EE00DC65C0 /* Purchase.swift */; };
 		92C18CD8292CBC9400DC65C0 /* StoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C18CD7292CBC9400DC65C0 /* StoreInteractor.swift */; };
 		92C18CDB292CBD2900DC65C0 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 92C18CDA292CBD2900DC65C0 /* SwiftyStoreKit */; };
 		92C18CDE292CBD7B00DC65C0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C18CDD292CBD7B00DC65C0 /* Store.swift */; };
@@ -51,7 +50,6 @@
 		92C18CC6292C854A00DC65C0 /* DreamerlySdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DreamerlySdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C18CC9292C854A00DC65C0 /* DreamerlySdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DreamerlySdk.h; sourceTree = "<group>"; };
 		92C18CCA292C854A00DC65C0 /* DreamerlySdk.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DreamerlySdk.docc; sourceTree = "<group>"; };
-		92C18CD2292C86EE00DC65C0 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		92C18CD5292C87A100DC65C0 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		92C18CD7292CBC9400DC65C0 /* StoreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInteractor.swift; sourceTree = "<group>"; };
 		92C18CDD292CBD7B00DC65C0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 		9267DE0A292F24B500C47664 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
-				92C18CD2292C86EE00DC65C0 /* Purchase.swift */,
 				92C18CD7292CBC9400DC65C0 /* StoreInteractor.swift */,
 			);
 			path = AppStore;
@@ -304,7 +301,6 @@
 				923A914F293598A5007E267D /* Glaip.swift in Sources */,
 				923A91652935B078007E267D /* WalletInfoModel.swift in Sources */,
 				923A9154293598A5007E267D /* WalletLinkService.swift in Sources */,
-				92C18CD3292C86EE00DC65C0 /* Purchase.swift in Sources */,
 				923A91602935AFF9007E267D /* ErrorView.swift in Sources */,
 				92C18CCB292C854A00DC65C0 /* DreamerlySdk.docc in Sources */,
 				92C18CD8292CBC9400DC65C0 /* StoreInteractor.swift in Sources */,
