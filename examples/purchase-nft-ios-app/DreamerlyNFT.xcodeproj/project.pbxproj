@@ -10,7 +10,7 @@
 		920CE66A2966F97500374E48 /* TransactionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CE6692966F97500374E48 /* TransactionStatusView.swift */; };
 		920CE66C2966F9A600374E48 /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CE66B2966F9A600374E48 /* TransactionStatus.swift */; };
 		920EC03C2935DF78006B0D5A /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 920EC03B2935DF78006B0D5A /* CryptoSwift */; };
-		9223EBC32967AF2D00A20FE7 /* DreamerlySdk in Frameworks */ = {isa = PBXBuildFile; productRef = 9223EBC22967AF2D00A20FE7 /* DreamerlySdk */; };
+		9250BA20296D165E002818F3 /* DreamerlySdk in Frameworks */ = {isa = PBXBuildFile; productRef = 9250BA1F296D165E002818F3 /* DreamerlySdk */; };
 		92B400C6293AFC71003DBDF8 /* SetAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B400C5293AFC71003DBDF8 /* SetAddressView.swift */; };
 		D643FA562927B91700EF68AF /* LoginStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643FA552927B91700EF68AF /* LoginStatusView.swift */; };
 		D6ADF7992921F96A009B7AA2 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADF7542921F96A009B7AA2 /* CancelBag.swift */; };
@@ -65,19 +65,6 @@
 		D6ADF7E02921FAC1009B7AA2 /* Glaip in Frameworks */ = {isa = PBXBuildFile; productRef = D6ADF7DF2921FAC1009B7AA2 /* Glaip */; };
 		D6ADF7E32921FAE0009B7AA2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6ADF7E22921FAE0009B7AA2 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		92D245C32967316F00DA62D2 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		920CE6692966F97500374E48 /* TransactionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStatusView.swift; sourceTree = "<group>"; };
@@ -141,7 +128,7 @@
 				D6ADF7DD2921FA9D009B7AA2 /* SwiftyStoreKit in Frameworks */,
 				D6ADF7DA2921FA82009B7AA2 /* Amplify in Frameworks */,
 				D6ADF7CF2921FA07009B7AA2 /* EnvironmentOverrides in Frameworks */,
-				9223EBC32967AF2D00A20FE7 /* DreamerlySdk in Frameworks */,
+				9250BA20296D165E002818F3 /* DreamerlySdk in Frameworks */,
 				D6ADF7D42921FA82009B7AA2 /* AWSCognitoAuthPlugin in Frameworks */,
 				D6ADF7E02921FAC1009B7AA2 /* Glaip in Frameworks */,
 				920EC03C2935DF78006B0D5A /* CryptoSwift in Frameworks */,
@@ -380,7 +367,6 @@
 				D6ADF73E2921F8E4009B7AA2 /* Sources */,
 				D6ADF73F2921F8E4009B7AA2 /* Frameworks */,
 				D6ADF7402921F8E4009B7AA2 /* Resources */,
-				92D245C32967316F00DA62D2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,7 +383,7 @@
 				D6ADF7DC2921FA9D009B7AA2 /* SwiftyStoreKit */,
 				D6ADF7DF2921FAC1009B7AA2 /* Glaip */,
 				920EC03B2935DF78006B0D5A /* CryptoSwift */,
-				9223EBC22967AF2D00A20FE7 /* DreamerlySdk */,
+				9250BA1F296D165E002818F3 /* DreamerlySdk */,
 			);
 			productName = DreamerlyNFT;
 			productReference = D6ADF7422921F8E4009B7AA2 /* DreamerlyNFT.app */;
@@ -786,7 +772,7 @@
 			package = 920EC03A2935DF78006B0D5A /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
-		9223EBC22967AF2D00A20FE7 /* DreamerlySdk */ = {
+		9250BA1F296D165E002818F3 /* DreamerlySdk */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 92D245C52967AC3E00DA62D2 /* XCRemoteSwiftPackageReference "dreamerly-ios-sdk" */;
 			productName = DreamerlySdk;

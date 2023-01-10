@@ -17,7 +17,7 @@ public protocol StoreInteractor {
     func checkNftStatus(transactionMetadataId: String, apiKey: String) -> AnyPublisher<NftTransactionData, Error>
     func fetchReceipt() -> AnyPublisher<Data, Error>
     func createNftTransaction(payload: CreateNftTransactionData,
-                         apiKey: String) -> AnyPublisher<String, Error>
+                         apiKey: String) -> AnyPublisher<NftTransactionData, Error>
 }
 
 //// MARK: - Public data object
@@ -56,25 +56,26 @@ public struct CreateNftTransactionData: Codable {
     public let apple_customer_id: String
 }
 
-public struct NftMetadata: Codable {
-    public var name: String
-    public var description: String
-    public var image: String
-    public var attributes: [String]
+public struct NftData: Codable {
+    public var metadata: String?
+    public var nft_display_name: String?
+    public var nft_description: String?
+    public var image_url: String?
+    public var token_id: String?
 }
 
-public struct NftOnChain: Codable {
-    public var token_id: Int
-    public var owner: String
-    public var tx_id: String
-    public var smart_contract_address: String
-    public var chain: String
+public struct NftBlockchain: Codable {
+    public var from_address: String?
+    public var to_address: String?
+    public var asset_contract_address: String?
+    public var transaction_hash: String?
 }
 
 public struct NftTransactionData: Codable {
-    public var id: String
-    public var metadata: NftMetadata
-    public var on_chain: NftOnChain
+    public var transaction_id: String
+    public var nft: NftData
+    public var blockchain: NftBlockchain
+    public var chain_id: String
     public var status: String
 }
 
@@ -144,12 +145,12 @@ public struct RealStoreInteractor: StoreInteractor {
     
     public func checkNftStatus(transactionMetadataId: String, apiKey: String) -> AnyPublisher<NftTransactionData, Error> {
         return Future { promise in
-            let url = URL(string: "https://test-api.dreamerly.com/nfts/" + transactionMetadataId)!
+            let url = URL(string: "https://test-api.dreamerly.com/transactions/" + transactionMetadataId)!
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
-            
+
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     print ("error: \(error)")
@@ -162,19 +163,11 @@ public struct RealStoreInteractor: StoreInteractor {
 //                    promise(.failure(error))
 //                    return
 //                }
+
                 let decoder = JSONDecoder()
-                if let data = data,
-                   let dataString = String(data: data, encoding: .utf8) {
-                    print(data)
-                    print ("got data: \(dataString)")
-                    
-                    let dataObj = Data(dataString.utf8)
-                    print(dataObj)
+                if let data = data {
                     do {
-                        let nftData = try decoder.decode(NftTransactionData.self, from: dataObj)
-                        print("thanh start")
-                        print(nftData)
-                        print(nftData.status)
+                        let nftData = try decoder.decode(NftTransactionData.self, from: data)
                         promise(.success(nftData))
                     } catch {
                         print(error.localizedDescription)
@@ -205,17 +198,16 @@ public struct RealStoreInteractor: StoreInteractor {
     }
     
     public func createNftTransaction(payload: CreateNftTransactionData,
-                                apiKey: String) -> AnyPublisher<String, Error> {
+                                apiKey: String) -> AnyPublisher<NftTransactionData, Error> {
 
         return Deferred {
             Future { promise in
 
                 guard let uploadData = try? JSONEncoder().encode(payload) else {
-                    promise(.success("Failed"))
                     return
                 }
 
-                let url = URL(string: "https://test-api.dreamerly.com/receipt")!
+                let url = URL(string: "https://test-api.dreamerly.com/transactions")!
                 var request = URLRequest(url: url)
                 request.httpMethod = "POST"
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -227,17 +219,21 @@ public struct RealStoreInteractor: StoreInteractor {
                         promise(.failure(error))
                         return
                     }
-                    guard let response = response as? HTTPURLResponse,
-                        (200...299).contains(response.statusCode) else {
-                        print ("server error")
-                        promise(.success("Server Error"))
-                        return
-                    }
-                    if let data = data,
-                        let dataString = String(data: data, encoding: .utf8) {
-                        print(data)
-                        print ("got data: \(dataString)")
-                        promise(.success(dataString))
+//                    guard let response = response as? HTTPURLResponse,
+//                        (200...299).contains(response.statusCode) else {
+//                        print ("server error")
+//                        promise(.success("Server Error"))
+//                        return
+//                    }
+                    let decoder = JSONDecoder()
+                    if let data = data {
+                        do {
+                            let nftData = try decoder.decode(NftTransactionData.self, from: data)
+                            promise(.success(nftData))
+                        } catch {
+                            print(error.localizedDescription)
+                            promise(.failure(error))
+                        }
                     }
                 }
                 task.resume()
@@ -269,7 +265,7 @@ public final class StubStoreInteractor: StoreInteractor {
     }
     
     public func createNftTransaction(payload: CreateNftTransactionData,
-                                apiKey: String) -> AnyPublisher<String, Error> {
+                                apiKey: String) -> AnyPublisher<NftTransactionData, Error> {
         return Empty(completeImmediately: true).eraseToAnyPublisher()
     }
 }

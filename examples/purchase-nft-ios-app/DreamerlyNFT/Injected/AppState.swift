@@ -25,6 +25,13 @@ extension AppState {
 
         var skProducts: [SKProduct] = []
 
+        @UserDefault(key: "nft_transactions_model", defaultValue: ["dreamerly.nft.01": "",
+                                                                   "dreamerly.nft.02": "",
+                                                                   "dreamerly.nft.03": "",
+                                                                   "dreamerly.nft.04": "",
+                                                                   "dreamerly.nft.05": ""]) // dictionary format = [appleProductId: nftTransactionMetadataId]
+        var nftTransactions: [String: String]
+    
         static func == (lhs: AppState.UserData, rhs: AppState.UserData) -> Bool {
             return lhs.walletInfoModel == rhs.walletInfoModel &&
             lhs.skProducts == rhs.skProducts

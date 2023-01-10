@@ -46,6 +46,7 @@ struct NftDetailView: View {
 
     @State private(set) var walletInfoModel: WalletInfoModel?
     @State private(set) var skProduct: SKProduct?
+    @State private(set) var nftTransactionStatus: TransactionStatus?
     @State private(set) var enableBuyButton: Bool = true
     @State private(set) var isShowingLoginScreen: Bool = false
     @State private(set) var isShowingLoginStatusScreen: Bool = false
@@ -143,11 +144,11 @@ struct NftDetailView: View {
 
                     Spacer(minLength: 10)
 
-//                    if let transactionStatus = self.transactionStatus {
-//                        TransactionStatusView(transactionStatus: transactionStatus)
-//
-//                        Spacer(minLength: 0)
-//                    }
+                    if let transactionStatus = self.nftTransactionStatus {
+                        TransactionStatusView(transactionStatus: transactionStatus)
+
+                        Spacer(minLength: 0)
+                    }
                 }
 
                 HStack(spacing: 12) {
@@ -160,10 +161,10 @@ struct NftDetailView: View {
                     Spacer()
                 }
 
-//                if let transactionStatus = self.transactionStatus, transactionStatus.shouldShowSubTitle {
-//                    Text("We will send the NFT to your wallet in the next 2, 3 days")
-//                        .font(.system(size: 14))
-//                }
+                if let transactionStatus = self.nftTransactionStatus, transactionStatus.shouldShowSubTitle {
+                    Text("We will send the NFT to your wallet in the next 2, 3 days")
+                        .font(.system(size: 14))
+                }
 
                 Spacer()
 
@@ -207,10 +208,11 @@ private extension NftDetailView {
     }
     
     private func fetchData(_ nftModel: NftModel) {
-        let walletInfoModel = injected.appState[\.userData.walletInfoModel]
-
         guard let iosIapId = nftModel.iosId else { return }
-        print(nftModel);
+        var nftTransactions = injected.appState[\.userData.nftTransactions]
+        let nftTransactionMetadataId = nftTransactions[iosIapId]
+        self.nftTransactionStatus = nftModel.transactionStatus
+        
 
         data.setIsLoading(cancelBag: cancelBag)
 
@@ -230,60 +232,22 @@ private extension NftDetailView {
             }
             .store(in: cancelBag)
         
-        injected.interactors.storeInteractor.checkNftStatus(transactionMetadataId: "90751898-bae1-466c-b9b7-5e79826e6e08", apiKey: "uq6BUDT7SU4GAl8DmbwlL3ygTRfq5Vvp38YxEnK6")
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    data = .failed(error)
-                case .finished:
-                    data = .loaded(nftModel)
-                }
-            } receiveValue: { result in
-                print("NftDetailView")
-                print(result)
-                print(result.status)
-            }
-            .store(in: cancelBag)
-    }
-    
-    private func sendReceiptData(payload: BackendPayloadData) -> AnyPublisher<String, Error> {
-        
-        return Deferred {
-            Future { promise in
-                guard let uploadData = try? JSONEncoder().encode(payload) else {
-                    promise(.success(payload.receiptData))
-                    return
-                }
-                
-                let url = URL(string: "https://eggfpvcd4a.execute-api.us-east-1.amazonaws.com/dev/transferNft")!
-                var request = URLRequest(url: url)
-                request.httpMethod = "POST"
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                
-                let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
-                    if let error = error {
-                        print ("error: \(error)")
-                        promise(.failure(error))
-                        return
+        if let nftTransactionMetadataId = nftTransactionMetadataId, nftTransactionMetadataId != "" {
+            print(nftTransactionMetadataId)
+            injected.interactors.storeInteractor.checkNftStatus(transactionMetadataId: nftTransactionMetadataId, apiKey: "uq6BUDT7SU4GAl8DmbwlL3ygTRfq5Vvp38YxEnK6")
+                .sink { completion in
+                    switch completion {
+                    case .failure(let error):
+                        data = .failed(error)
+                    case .finished:
+                        data = .loaded(nftModel)
                     }
-                    guard let response = response as? HTTPURLResponse,
-                        (200...299).contains(response.statusCode) else {
-                        print ("server error")
-                        promise(.success(payload.receiptData))
-                        return
-                    }
-                    if let data = data,
-                        let dataString = String(data: data, encoding: .utf8) {
-                        print(data)
-                        print ("got data: \(dataString)")
-                        promise(.success(payload.receiptData))
-                    }
+                } receiveValue: { result in
+                    self.nftTransactionStatus = TransactionStatus(rawValue: result.status)
+//                    self.nftTransactionStatus = .delivered
                 }
-                task.resume()
-            }
+                .store(in: cancelBag)
         }
-        .eraseToAnyPublisher()
-
     }
 
     private func buyNFT(model: NftModel) {
@@ -312,13 +276,17 @@ private extension NftDetailView {
             .sink { completion in
                 switch completion {
                 case .failure(_):
-                    print("1")
                     data.cancelLoading()
                 case .finished:
-                    print("2")
                     fetchData(model)
                 }
-            } receiveValue: { _ in
+            } receiveValue: { result in
+                let transactionMetadataId = result[0].transaction_id
+                print(transactionMetadataId)
+                guard let iosIapId = nftModel.iosId else { return }
+                var nftTransactions = injected.appState[\.userData.nftTransactions]
+                nftTransactions[iosIapId] = transactionMetadataId
+                injected.appState[\.userData.nftTransactions] = nftTransactions
             }
             .store(in: cancelBag)
     }
