@@ -1,6 +1,6 @@
-#  Purchase NFT SwiftUI - Dreamerly Sample
+#  NFT Purchase Example App
 
-Purchase NFT is a sample app demonstrating the proper methods for using Dreamerly's SDK. This sample uses only front-end components - no back-end needed.
+NFT Purchase is a sample app demonstrating the proper methods for using Dreamerly's SDK. This sample uses only front-end components - no back-end needed.
 
 Sign up for a free Dreamerly account [here](https://www.app.dreamerly.com).
 
